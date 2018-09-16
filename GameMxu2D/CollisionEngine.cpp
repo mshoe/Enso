@@ -53,14 +53,22 @@ void CollisionEngine::ResolveInfCollision(shared_ptr<Actor> a, shared_ptr<Actor>
 void CollisionEngine::UpdatePositions(vector<shared_ptr<Actor>> actors, shared_ptr<PlayerActor> player, float td)
 {
 	CruiseControl(player, td);
+
+
+
 	for (int i = 0; i < actors.size(); ++i) {
 		//if (actors[i]->movedThisFrame)
 		//	continue;
 		
+		// TODO: make PLAYER speed constant
+
 		actors[i]->vel += actors[i]->acc * td;
+		/*
 		if (actors[i]->team == PLAYER) {
-			actors[i]->vel -= actors[i]->vel * (PLAYER_FRICTION + actors[i]->internal_friction)* td;
+			//actors[i]->vel -= actors[i]->vel * (PLAYER_FRICTION + actors[i]->internal_friction)* td;
+		
 		}
+		*/
 
 		if (actors[i]->team != PLAYER) { // move circle to player
 			
@@ -128,37 +136,47 @@ bool CollisionEngine::CircleCollision(shared_ptr<Actor> a1, shared_ptr<Actor> a2
 
 void CollisionEngine::CruiseControl(shared_ptr<PlayerActor> a, float td)
 {
-	// Cruise control system
+	// Cruise control system (Not really)
 	// Make player go at desired speed
-
+	/*
 	float a_speed = glm::length(a->vel);
 	float error = a->des_speed - a_speed;
 
-	
+
 	float des_acc_mag = (error + PLAYER_FRICTION * a_speed);
 	//cout << error << endl;
 	a->acc = glm::vec2(0);
+	*/
+	a->vel = glm::vec2(0);
 	for (int i = 0; i < 4; i++) {
 		if (a->direction[i]) {
 			switch (i) {
 			case NORTH:
-				a->acc.y = 0.7071f;
+				a->vel.y = 1.f;
 				break;
 			case EAST:
-				a->acc.x = 0.7071f;
+				a->vel.x = 1.f;
 				break;
 			case SOUTH:
-				a->acc.y = -0.7071f;
+				a->vel.y = -1.f;
 				break;
 			case WEST:
-				a->acc.x = -0.7071f;
+				a->vel.x = -1.f;
 				break;
 			default:
 				break;
 			}
 		}
 	}
-	a->acc *= des_acc_mag;
+	// check if diagonal
+	if ((a->direction[NORTH] && a->direction[EAST]) ||
+		(a->direction[NORTH] && a->direction[WEST]) ||
+		(a->direction[SOUTH] && a->direction[EAST]) ||
+		(a->direction[SOUTH] && a->direction[WEST])) {
+		a->vel *= 0.7071f;
+	}
+
+	a->vel *= PLAYER_SPEED;
 
 	
 }

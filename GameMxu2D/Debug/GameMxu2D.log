@@ -1,16 +1,5 @@
-﻿  Actor.cpp
-  CollisionEngine.cpp
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(95): warning C4305: 'initializing': truncation from 'double' to 'float'
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(96): warning C4305: 'initializing': truncation from 'double' to 'float'
-  GameEngine.cpp
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\gameengine.cpp(81): warning C4018: '<': signed/unsigned mismatch
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\gameengine.cpp(111): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\gameengine.cpp(112): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\gameengine.cpp(120): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\gameengine.cpp(121): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  InputEngine.cpp
-  RenderEngine.cpp
-  main.cpp
-  Generating Code...
+﻿  CollisionEngine.cpp
+c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(103): warning C4305: 'initializing': truncation from 'double' to 'float'
+c:\users\mxuor\source\repos\gamemxu2d\gamemxu2d\collisionengine.cpp(104): warning C4305: 'initializing': truncation from 'double' to 'float'
   GameMxu2D.vcxproj -> C:\Users\mxuor\source\repos\GameMxu2D\Debug\GameMxu2D.exe

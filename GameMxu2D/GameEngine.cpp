@@ -75,9 +75,11 @@ void GameEngine::Loop()
 		
 
 		
-
+		inputEngine->PlayerMovement(player);
 		colEngine->UpdatePositions(actors, player, steady_dur.count());
 		// get rid of actors that touch goal
+		colEngine->ComputeCollisions(actors);
+
 		for (int i = 0; i < actors.size();) {
 			if (actors[i]->touchedGoal) {
 				if (actors[i]->team == ENEMY)
@@ -95,9 +97,9 @@ void GameEngine::Loop()
 
 		//cout << "out of loop" << endl;
 
-		colEngine->ComputeCollisions(actors);
 		
-		inputEngine->PlayerMovement(player);
+		
+		
 		renderEngine->DrawActors(actors);
 
 		//cout << player->pos.x << "," << player->pos.y << " | " << actors[1]->vel.x << "," << actors[1]->vel.y << endl;
